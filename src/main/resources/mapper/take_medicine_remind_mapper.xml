@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shgbit.cloudhealth.dao.TakeMedicineDao">
+    <!-- <select id="queryGuideSteps" resultType="com.shgbit.cloudhealth.model.MeasureGuideStep" parameterType="com.shgbit.cloudhealth.model.MeasureGuideStep" >
+         select * from guide_images where measure_type = #{measure_type,jdbcType=VARCHAR}
+         and device_type = #{device_type,jdbcType=VARCHAR}
+     </select>-->
+    <insert id="insertTakeMedicineRemind" parameterType="com.shgbit.cloudhealth.model.TakeMedicineRemind">
+        insert into take_medicine_remind (imgAddress,firstTimeTakeMedicine,medicineName,appNotify,frequencyTakeMedicine,createTime,updateTime,loginId,takeMedicineRemindId,isFinished)
+         values (#{imgAddress,jdbcType = VARCHAR},#{firstTimeTakeMedicine,jdbcType = VARCHAR},#{medicineName,jdbcType = VARCHAR},#{appNotify,jdbcType = TINYINT},#{frequencyTakeMedicine,jdbcType = VARCHAR},#{createTime,jdbcType = INTEGER},#{updateTime,jdbcType = VARCHAR},#{loginId,jdbcType=VARCHAR},#{takeMedicineRemindId,jdbcType=VARCHAR},#{finished,jdbcType=TINYINT})
+    </insert>
+
+    <select id="queryTakeMedicineRemind" resultType="com.shgbit.cloudhealth.model.TakeMedicineRemind"
+            parameterType="java.lang.String">
+        select * from  take_medicine_remind where loginId = #{loginId,jdbcType = VARCHAR}
+        and isFinished = false ;
+    </select>
+
+    <update id="updateTakeMedicineRemind" parameterType="com.shgbit.cloudhealth.model.TakeMedicineRemind">
+         update take_medicine_remind set imgAddress=#{imgAddress,jdbcType = VARCHAR},
+         firstTimeTakeMedicine=#{firstTimeTakeMedicine,jdbcType = VARCHAR},
+         medicineName=#{medicineName,jdbcType = VARCHAR},
+         appNotify=#{appNotify,jdbcType = TINYINT},
+         frequencyTakeMedicine=#{frequencyTakeMedicine,jdbcType = VARCHAR},
+         updateTime=#{updateTime,jdbcType = VARCHAR}
+         where loginId= #{loginId,jdbcType = VARCHAR}
+         and takeMedicineRemindId= #{takeMedicineRemindId,jdbcType=VARCHAR};
+    </update>
+
+    <update id="deteleTakeMedicineRemind" parameterType="com.shgbit.cloudhealth.model.TakeMedicineRemind">
+         update take_medicine_remind set
+         isFinished=true
+         where loginId= #{loginId,jdbcType = VARCHAR}
+         and takeMedicineRemindId= #{takeMedicineRemindId,jdbcType=VARCHAR};
+    </update>
+</mapper>

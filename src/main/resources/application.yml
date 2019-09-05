@@ -1,0 +1,66 @@
+server:
+  port: 803
+  servlet:
+    context-path: /
+
+#  port: 443
+#  ssl:
+#    #生成证书的名字
+#    key-store: MyKeyStore.p12
+#    #密钥库密码
+#    key-store-password: 123456
+#    key-store-type: JKS
+#    key-alias: tomcat
+http:
+  port: 80
+#默认使用配置
+spring:
+  profiles:
+    active: dev
+
+#公共配置与profiles选择无关 mapperLocations指的路径是src/main/resources
+mybatis:
+  typeAliasesPackage: com.shgbit.cloudhealt
+  mapperLocations: classpath:mapper/*.xml
+
+
+---
+#静态资源对外暴露的访问路径
+file:
+  staticAccessPath: /images/**
+  #文件上传目录（注意Linux和Windows上的目录结构不同）
+#  linux
+#  uploadFolder: /root/mythqian/uploadFiles/
+#  windows
+  uploadFolder: c://cloudhealth//uploadFiles/
+
+localhost:
+#   ip: 116.62.215.20
+  ip: 127.0.0.1
+#开发配置
+spring:
+  profiles: dev
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/cloudhealth?useUnicode=true&characterEncoding=UTF-8
+#    username: root
+#    password: 123456
+#    driver-class-name: com.mysql.jdbc.Driver
+#    # 使用druid数据源
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+#mongodb 配置
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/cloudhealth
+
+#Json解析配置
+  jackson:
+    timeZone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+

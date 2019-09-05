@@ -1,0 +1,96 @@
+@charset "utf-8";
+/* BASE */
+html{color: #666;background: #fff;}
+blockquote,body,code,dd,div,dl,dt,fieldset,form,h1,h2,h3,h4,h5,h6,a,span,img,input,legend,li,ol,p,pre,td,textarea,th,ul{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+img{display:block;}
+li{list-style:none}
+h1,h2,h3,h4,h5,h6{font-size:100%}
+q:after,q:before{content:''}
+input,select,textarea{*font-size:100%}
+a{color: #666;text-decoration:none}
+a:hover{color: #00b9cc;text-decoration:none;}
+input,textarea{color:#333}
+body{background:#fff;}
+body,button,input,select,textarea{font: 12px/24px Arial,sans-serif;}
+em{font-style: normal;}
+img{max-width: 100%;}
+.float-left{float:left;}
+.float-right{float:right;}
+.float-box{zoom:1;}/* 针对IE浏览器产生haslayout效果清除浮动 *//* 包含浮动元素的容器 */
+.no-float{color:#FFFFFF;background-color:#000000;} /* 因浮动元素而印象到的内容 */
+.float-box:after{clear:both;display:block;visibility:hidden;height:0;line-height:0; content:""; overflow:hidden;} /* 利用:after伪类层清除浮动 *
+/*content*/
+/*common style*/
+img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+#wapBox {
+    margin: 0 auto;
+    position: relative;
+    /*width: 380px;*/
+    max-width: 480px;
+}
+/*start code as fullPage.css*/
+.section {
+    text-align: center;
+    position: relative;
+}
+.fp-slides{
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease-out 0s;
+}
+.fp-slide{
+    float: left;
+}
+.fp-slidesContainer{
+    float: left;
+    position: relative;
+}
+.fp-slide, .fp-slidesContainer{
+    display: block;
+    height: 100%;
+}
+.fp-section.fp-table, .fp-slide.fp-table{
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.fp-slide, .fp-slidesContainer{
+    display: block;
+    height: 100%;
+}
+.fp-tableCell{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+/*end*/
+.slide strong{
+    position: absolute;
+    font-size: 20px;
+    color: #494949;
+    font-weight: normal;
+}
+.slide strong.slide-1{
+    bottom: 10%;
+    left: 3.6%;
+}
+.slide strong.slide-2-1{
+    bottom: 10%;
+    left: 2.6%;
+}
+.slide strong.slide-2-2{
+    bottom: 10%;
+    left: 3.7%;
+}
+.slide strong.slide-2-3, .slide strong.slide-2-4{
+    bottom: 10%;
+    left: 4%;
+}
